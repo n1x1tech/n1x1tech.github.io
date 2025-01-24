@@ -5,20 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nick Corrigan</title>
     <style>
+        :root {
+            /* Main Colors */
+            --primary-color: navy;
+            --secondary-color: #1B4F72;
+            --accent-color-1: red;
+            --accent-color-2: gold;
+            --text-color: black;
+            --background-color: white;
+            
+            /* Button Colors */
+            --button-border: #1B4F72;
+            --button-hover: #1B4F72;
+            --button-text: black;
+            --button-text-hover: white;
+        }
+        @font-face {
+            font-family: 'air conditioner';
+            src: url('../fonts/Air Conditioner.ttf') format('woff2'),
+                 url('../fonts/font1.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'YourCustomFont2';
+            src: url('../fonts/font2.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
             max-width: 1200px;
             margin: 0 auto;
-            font-family: 'Courier New', monospace;
+            font-family: 'Air Conditioner', sans-serif;
             padding: 20px;
         }
 
         .header {
-            border-top: 2px solid navy;
-            border-bottom: 2px solid navy;
+            position: relative;
+            border-top: 2px solid var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
             padding: 10px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .header:after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: red;  /* Change this color as needed */
+        }
+
+        .header:before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: gold;  /* Change this color as needed */
         }
 
         .logo {
@@ -32,9 +84,59 @@
             gap: 40px;
         }
 
+        /* Animation keyframes */
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeUp {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         .illustration {
             flex: 1;
             max-width: 500px;
+            position: relative;
+             aspect-ratio: 1/1;
+            padding-top: 60px; /* Adjust space for lightning */
+        
+        }
+
+        .tv-radio {
+            width: 80%;
+            height: auto;
+            display: block;
+            margin: 05 auto;
+            position: relative;
+            z-index: 1;
+            animation: slideIn 1s ease-out forwards;
+        }
+
+        .lightning {
+            position: absolute;
+            top: 0;
+            left: 5%;
+            transform: translateX(0%);
+            width: 75%;
+            height: auto;
+            z-index: 2;
+            animation: fadeUp 1s ease-out forwards;
+            animation-delay: 0.5s;
+            opacity: 0;
         }
 
         .nav-menu {
@@ -43,11 +145,23 @@
         }
 
         .nav-menu a {
-            display: block;
+            display: inline-block;
             font-size: 1.5rem;
             text-decoration: none;
             color: black;
             margin-bottom: 20px;
+            padding: 10px 20px;
+            border: 2px solid #1B4F72;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            width: 200px;
+            text-align: center;
+        }
+
+        .nav-menu a:hover {
+            background-color: #1B4F72;
+            color: white;
+            transform: translateX(10px);
         }
 
         .social-icons {
@@ -68,35 +182,17 @@
 
     <div class="main-content">
         <div class="illustration">
-            <svg viewBox="0 0 400 400">
-                <!-- Lightning Bolts -->
-                <path d="M180,50 L200,10 L190,40 L210,30" fill="none" stroke="#DAA520" stroke-width="3"/>
-                <path d="M220,40 L240,0 L230,30 L250,20" fill="none" stroke="#DAA520" stroke-width="3"/>
-                <path d="M260,50 L280,10 L270,40 L290,30" fill="none" stroke="#DAA520" stroke-width="3"/>
-                
-                <!-- TV/Radio Base -->
-                <rect x="100" y="150" width="200" height="150" fill="#1B4F72"/>
-                <rect x="50" y="300" width="300" height="50" fill="#A0522D"/>
-                <rect x="50" y="350" width="300" height="30" fill="#DAA520"/>
-                
-                <!-- Antenna -->
-                <line x1="150" y1="150" x2="150" y2="50" stroke="#1B4F72" stroke-width="5"/>
-                <line x1="250" y1="150" x2="250" y2="50" stroke="#1B4F72" stroke-width="5"/>
-                
-                <!-- Screen and Controls -->
-                <rect x="120" y="170" width="160" height="100" fill="white"/>
-                <circle cx="180" cy="290" r="15" fill="#2C3E50"/>
-                <circle cx="220" cy="290" r="15" fill="#2C3E50"/>
-            </svg>
+            <img src="images/Main.jpg" alt="Vintage TV Radio" class="tv-radio">
+            <img src="images/LightningBG.png" alt="Lightning Bolts" class="lightning">
         </div>
         
         <div class="nav-menu">
-            <a href="/videos">Videos</a>
-            <a href="/gallery">Gallery</a>
-            <a href="/rd">R & D</a>
-            <a href="/bio">Bio</a>
-            <a href="/cv">CV</a>
-            <a href="/contact">Contact</a>
+            <a href="/videos.html">Videos</a>
+            <a href="/gallery.html">Gallery</a>
+            <a href="/rd.html">R & D</a>
+            <a href="/bio.html">Bio</a>
+            <a href="/cv.html">CV</a>
+            <a href="/contact.html">Contact</a>
             
             <div class="social-icons">
                 <img src="/api/placeholder/24/24" alt="Instagram">
