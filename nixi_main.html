@@ -6,39 +6,130 @@
     <title>Welcome</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
+            max-width: 1452px;
+            margin: 40px auto;
+            padding: 74;
             background: black;
-            height: 100vh;
+            height: 165vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
-
-        .container {
-            text-align: center;
-            text-decoration: none;
-            cursor: pointer;
+        
+        .header {
+            position: relative;
+            border-top: 5px solid var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
         }
 
-        .enter-text {
-            color: white;
-            font-size: 24px;
-            margin-top: 20px;
-            font-family: Arial, sans-serif;
-            transition: color 0.3s ease;
+        .rd-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
-        .container:hover .enter-text {
-            color: #ff4444;
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .video-item {
+            margin-bottom: 40px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            background: #000;
+            margin-bottom: 15px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-description {
+            font-family: American Typewriter;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .software-name {
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="main.html" class="container">
-        <img src="images/NIXI TUBE_v9_2" alt="Technology Display">
-        <div class="enter-text">{enter}</div>
-    </a>
+    <div class="header">
+    <img src="/images/nixi_tech1-white.png" alt="logo">
+     </div>
+    <div class="rd-container">
+        <div class="video-grid">
+            <!-- Video 1 -->
+            <div class="video-item">
+                <div class="video-wrapper">
+                   <iframe src="https://player.vimeo.com/video/510536986?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Liquid Light Orbital System"></iframe><script src="https://player.vimeo.com/api/player.js"></script>
+                </div>
+                <div class="video-description">
+                    An immersive orbital system for multi-point surround sound system. Created in 
+                    <span class="software-name">TouchDesigner</span>.
+                </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="video-item">
+                <div class="video-wrapper">
+                    <iframe src="https://player.vimeo.com/video/583379551?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="ProjectionMap+LEDarray.mp4"></iframe>
+                </div>
+                <div class="video-description">
+                    Projection mapping with LED light array interaction featuring liquid light. Created in 
+                    <span class="software-name">TouchDesigner</span>.
+                </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="video-item">
+                <div class="video-wrapper">
+                   <iframe src="https://player.vimeo.com/video/510536737?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Light and Video Interaction"></iframe>
+                </div>
+                <div class="video-description">
+                    Interaction between a video monitor and custom LED array. Controlled via midi mapping. Created in 
+                    <span class="software-name">TouchDesigner</span>.
+                </div>
+            </div>
+
+            <!-- Video 4 -->
+            <div class="video-item">
+                <div class="video-wrapper">
+                    <iframe src="https://player.vimeo.com/video/510536792?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Midi Animations"></iframe>
+                </div>
+                <div class="video-description">
+                    Interactive animations set to music. Controlled via midi mapping. Created in 
+                    <span class="software-name">TouchDesigner</span>.
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

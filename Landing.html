@@ -19,15 +19,19 @@
             text-align: center;
             text-decoration: none;
         }
+        .video-wrapper {
+            max-width: 100%;
+            height: auto;
+        }
         video {
-            max-width: 58%;
+            width: 100%;
             height: auto;
         }
         .enter-text {
             color: white;
             font-size: 24px;
             margin-top: 20px;
-            font-family: American Typewriter, sans-serif;
+            font-family: Arial, sans-serif;
             transition: color 0.3s ease;
         }
         .container:hover .enter-text {
@@ -36,9 +40,26 @@
     </style>
 </head>
 <body>
-    <a href="nixi_main.html" class="container">
-        <img src="/images/Nixi_Tech_720.png" alt="Vimeo">
+    <a href="main.html" class="container">
+        <div class="video-wrapper">
+            <video preload="auto" autoplay muted playsinline>
+                <source src="NixiTech_main.mp4" type="video/mp4">
+                <img src="NixiTech_main.jpg" alt="Technology Display">
+            </video>
+        </div>
         <div class="enter-text">{enter}</div>
     </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('video');
+            video.load();
+            
+            // Ensure video plays
+            video.play().catch(function(error) {
+                console.log("Video play failed:", error);
+            });
+        });
+    </script>
 </body>
 </html>
